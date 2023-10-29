@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "pítka",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 29, "TITLE": "PARO - Hlaváčkova", "DESCRIPTION": "Paro pitko na víceůčelovém hřišti u prolézačky z pneumatik", "IMAGE_URL": null, "GlobalID": "{2E26EC97-4A19-4023-85D1-F91DE16FC0B5}", "PARO": "Ano" }, "geometry": { "type": "Point", "coordinates": [ 16.589068119000046, 49.227618113000062 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 30, "TITLE": "PARO - Veslařská", "DESCRIPTION": "Paro pitko na Workout hřišťi", "IMAGE_URL": null, "GlobalID": "{EBF3A24A-0237-4307-845D-630EBCE9672F}", "PARO": "Ano" }, "geometry": { "type": "Point", "coordinates": [ 16.555154314000049, 49.207647001000055 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 31, "TITLE": "PARO - Volejníkova", "DESCRIPTION": null, "IMAGE_URL": null, "GlobalID": "{0DE32D1E-D15A-4A4F-A956-B81BA3426EAE}", "PARO": "Ano" }, "geometry": { "type": "Point", "coordinates": [ 16.621324763000075, 49.208762297000078 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 32, "TITLE": "PARO - Medlánky", "DESCRIPTION": null, "IMAGE_URL": null, "GlobalID": "{B11F9839-D259-47DA-B8EB-4F9217516AEC}", "PARO": "Ano" }, "geometry": { "type": "Point", "coordinates": [ 16.571352588000025, 49.243372168000064 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 33, "TITLE": "PARO - Kraví hora", "DESCRIPTION": null, "IMAGE_URL": null, "GlobalID": "{7F6B2AC3-2D75-4413-BA0E-8870DE8AD46D}", "PARO": "Ano" }, "geometry": { "type": "Point", "coordinates": [ 16.587541540000075, 49.20621907900005 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 34, "TITLE": "PARO - Cacovický ostrov", "DESCRIPTION": "Plánováno", "IMAGE_URL": null, "GlobalID": "{83F8DC15-1C1A-4A96-9A6A-3AC58F9D0486}", "PARO": "Ano" }, "geometry": { "type": "Point", "coordinates": [ 16.639251243000047, 49.224515646000043 ] } }
+]
+}
