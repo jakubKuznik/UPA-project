@@ -103,6 +103,16 @@ def scrape_data(urls):
 
     if product_details:
       product_info = {}
+      product_info["url"] = url
+
+      product_name_element = soup.find('h1', class_='h1')
+      product_name = product_name_element.text.strip()
+      product_info["nazwa"] = product_name
+
+      product_price_element = soup.find('span', class_='price--lg')
+      product_price = product_price_element.text.strip()
+      product_info["cena"] = product_price
+
       dt_details = product_details.find_all('div', class_='dt_detail')
       for dt_detail in dt_details:
         text_parts = list(dt_detail.stripped_strings)
@@ -114,13 +124,13 @@ def scrape_data(urls):
       data_list.append(product_info)
 
   data = pd.DataFrame(data_list)
-  data.to_json('produkty.json', orient='records', lines=True)
+  data.to_csv('produkty.tsv', sep='\t', header=False, index=False)
   print(data)
 
 def main():
 	
   parse_args()
-  urls  = get_urls(10)
+  urls  = get_urls(100)
   scrape_data(urls)
   driver.quit()
 
