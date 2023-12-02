@@ -3,13 +3,15 @@
 
 ## Usage: 
 #./get-url.py path_to_chrome_drive 
-url="https://allegro.pl/kategoria/smartfony-i-telefony-komorkowe-165"
+url="https://massi.pl/pl/57-wszystkie-umywalki"
 
 import time
 import socket
 import sys
 import argparse
 import os
+import pandas as pd
+import requests
 from typing import List, Any
 
 script_directory = os.path.dirname(os.path.realpath(__file__))
@@ -24,6 +26,7 @@ from selenium.webdriver import ActionChains
 
 
 from bs4 import BeautifulSoup
+
 
 
 #CHROME MODE
@@ -61,27 +64,64 @@ def get_urls(maximum):
   print(url)
   driver.get(str(url))
   time.sleep(0.5)
+  past_url = ""
   while True:
     html_source = driver.page_source
     soup = BeautifulSoup(html_source, 'html.parser')
-    links = soup.find_all('a')
+    links = soup.find_all('a', class_="product-miniature__thumb-link")
     for link in links:
       href = link.get('href')
-      if href and "produkt/smartfon" in href:
+      if href and "umywalka" in href:
         if href not in urls:
-          urls.append(href) 
-    ## if there are no more hrefs on page and we haven't reach 100 
-      ## then go to next page 
-    if len(urls) > 100:
-      break;
+          urls.append(href)
+          # Pokud není na aktuální stránce 100 odkazů, přejdi na další stránku
+
+    next_button = soup.find('a', {'rel': 'next'})
+    try:
+      next_url = next_button.get('href')
+      if next_url == past_url:
+        break
+      driver.get(next_url)
+      past_url = next_url
+      time.sleep(0.5)
+    except Exception as e:
+      print("Nelze najít tlačítko Next nebo došli stránky s odkazy.")
+      break
+    if len(urls) > maximum:
+      break
     
     
-  print(urls) 
+  return urls
+
+def scrape_data(urls):
+  data_list = []
+  for url in urls:
+    driver.get(url)
+    html_source = driver.page_source
+    soup = BeautifulSoup(html_source, "html.parser")
+    product_details = soup.find('div', class_='product-details js-product-details')
+
+    if product_details:
+      product_info = {}
+      dt_details = product_details.find_all('div', class_='dt_detail')
+      for dt_detail in dt_details:
+        text_parts = list(dt_detail.stripped_strings)
+        if len(text_parts) == 2:
+          key = text_parts[0]
+          value = text_parts[1]
+          product_info[key] = value
+
+      data_list.append(product_info)
+
+  data = pd.DataFrame(data_list)
+  data.to_json('produkty.json', orient='records', lines=True)
+  print(data)
 
 def main():
 	
   parse_args()
-  get_urls(100)
+  urls  = get_urls(10)
+  scrape_data(urls)
   driver.quit()
 
 
