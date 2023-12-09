@@ -39,8 +39,6 @@ options.add_argument('--disable-dev-shm-usage')
 ## change to path so it works on merlin 
 ## or maybe use args  
 path_to_chrome_driver = os.path.join(script_directory, 'drivers/chromedriver')
-print("Path to Chrome Driver:", path_to_chrome_driver)
-print("Options:", options)
 driver = webdriver.Chrome()
 
 urls = []
@@ -54,14 +52,12 @@ def parse_args():
   except:
     sys.exit(1)
   
-  print(args)
   return args
 
 ## get maximum of maximum url 
 def get_urls(maximum):
 
   # pwhile we dont have 100 smarthphones 
-  print(url)
   driver.get(str(url))
   time.sleep(0.5)
   past_url = ""
@@ -74,6 +70,8 @@ def get_urls(maximum):
       if href and "umywalka" in href:
         if href not in urls:
           urls.append(href)
+          if len(urls) == maximum:
+            return urls
           # Pokud není na aktuální stránce 100 odkazů, přejdi na další stránku
 
     next_button = soup.find('a', {'rel': 'next'})
@@ -87,55 +85,18 @@ def get_urls(maximum):
     except Exception as e:
       print("Nelze najít tlačítko Next nebo došli stránky s odkazy.")
       break
-    if len(urls) > maximum:
-      break
-    
     
   return urls
-
-def scrape_data(urls):
-  data_list = []
-  for url in urls:
-    driver.get(url)
-    html_source = driver.page_source
-    soup = BeautifulSoup(html_source, "html.parser")
-    product_details = soup.find('div', class_='product-details js-product-details')
-
-    if product_details:
-      product_info = {}
-      product_info["url"] = url
-
-      product_name_element = soup.find('h1', class_='h1')
-      product_name = product_name_element.text.strip()
-      product_info["nazwa"] = product_name
-
-      product_price_element = soup.find('span', class_='price--lg')
-      product_price = product_price_element.text.strip()
-      product_info["cena"] = product_price
-
-      dt_details = product_details.find_all('div', class_='dt_detail')
-      for dt_detail in dt_details:
-        text_parts = list(dt_detail.stripped_strings)
-        if len(text_parts) == 2:
-          key = text_parts[0]
-          value = text_parts[1]
-          product_info[key] = value
-
-      data_list.append(product_info)
-
-  data = pd.DataFrame(data_list)
-  data.to_csv('produkty.tsv', sep='\t', header=False, index=False)
-  print(data)
 
 def main():
 	
   parse_args()
   urls  = get_urls(100)
-  scrape_data(urls)
+  for u in urls:
+    print(u)
   driver.quit()
 
 
 if __name__ == '__main__':
     start = time.time()
     main()
-    print(time.time() - start)
