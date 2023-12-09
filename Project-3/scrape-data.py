@@ -2,7 +2,7 @@
 # https://allegro.pl/kategoria/smartfony-i-telefony-komorkowe-165
 
 ## Usage: 
-#./python3 path_to_chrome_drive -url-file urls.txt 
+#./python3 path_to_chrome_drive -url-file urls.txt [-max] 
 url="https://massi.pl/pl/57-wszystkie-umywalki"
 
 import time
@@ -45,6 +45,7 @@ def parse_args():
   parser = argparse.ArgumentParser(description='UPA web scraper:', add_help=False)
   parser.add_argument("-h", "--help", action="count", default=0, help="./get-url.py path_to_chrome_driver")
   parser.add_argument("-url-file", dest="url_file", type=str, help="Path to the file containing URLs")
+  parser.add_argument("-max", dest="max_items", type=int, default=100, help="Maximum number of items to scrape")
 
   try:
     args = parser.parse_args()
@@ -98,9 +99,6 @@ def main():
 
   with open(url_file, 'r') as file:
     urls.extend(file.read().splitlines())
-
-  for u in urls:
-    print(u)
 
   scrape_data(urls)
   driver.quit()
