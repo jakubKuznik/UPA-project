@@ -1,4 +1,5 @@
 #!/bin/bash 
-python3 get-url.py > urls.txt & 
-python3 scrape-data.py -url-file urls.txt -max 10 > produkty.tsv 
+python3 get-url.py > url_test.txt
+
+python3 scrape-data.py --url-file url_test.txt --max 10
 
