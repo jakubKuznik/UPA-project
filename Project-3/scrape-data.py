@@ -1,3 +1,10 @@
+## Program will scrape 100 urls from: 
+# https://allegro.pl/kategoria/smartfony-i-telefony-komorkowe-165
+
+## Usage: 
+#./python3 path_to_chrome_drive -url-file urls.txt [-max] 
+url="https://massi.pl/pl/57-wszystkie-umywalki"
+
 import time
 import argparse
 import os
