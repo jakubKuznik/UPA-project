@@ -1,24 +1,33 @@
 # Název týmu: 0903
+
+## Seznam řešitelů:  
+Lucie Svobodová (xsvobo1x)  
+Jakub Kuzník (xkuzni04)  
+Adam Kaňkovský (xkanko00)  
+
 ## Zvolené URL: https://massi.pl/pl/57-wszystkie-umywalki
+
 ## Název E-shopu: Massi 
 
-##Vyznám sloupců ve výstupu TSV: 
+## Význam sloupců ve výstupu TSV: 
 
- - **URL:** https://massi.pl/pl/umywalki-blatove/...
- - **nazwa (Název):** Umywalka nablatowa prostokątna 40 x 22 cm NAVI
- - **cena:** 254,15 zł
- - **kolekcia (Kolekce):** KONGLOMERAT
- - **Rozmiar (Rozměr):** 80-90cm
- - **Szerokość (Šířka):** 80 cm
- - **Krótszy bok: (Kratší strana):** 47 cm
- - **Wysokość (Výška):** 13,5 cm
- - **Materiał (Materiál):** ceramika
- - **Kształt (Tvar):** prostokątna
- - **Kolor (Barva):** biały
- - **Wykończenie (Dokončení):** połysk
- - **Powłoka ochronna (Ochraný povrh):** tak
- - **Rodzaj powłoki (Typ Povlaku):** EASY CLEAN
- - **Przelew (Přeliv):** nie 
- - **Otwór na baterię (Otvor na baterie):** nie
- - **Gwarancja (Záruka):** 5 lat 
- - **Korek (Špunt):** należy dokupić osobno
+ - URL (https://massi.pl/pl/umywalki-blatove/...)
+ - nazwa (název, např. "Umywalka nablatowa prostokątna 40 x 22 cm NAVI")
+ - cena (cena, např. 254,15 zł)
+ - kolekcia (kolekce, např."KONGLOMERAT")
+ - Rozmiar (Rozměr, např. 80-90cm)
+ - Szerokość (Šířka, např. 80 cm)
+ - Krótszy bok: (Kratší strana, např. 47 cm)
+ - Wysokość (Výška, např. 13,5 cm)
+ - Materiał (Materiál, např. "ceramika")
+ - Kształt (Tvar, např. "prostokątna")
+ - Kolor (Barva, např. "biały")
+ - Wykończenie (Dokončení, např. "połysk")
+ - Powłoka ochronna (Ochraný povrh, např. "tak")
+ - Rodzaj powłoki (Typ Povlaku, např. "EASY CLEAN")
+ - Przelew (Přeliv, např. "nie")
+ - Otwór na baterię (Otvor na baterie, např. "nie")
+ - Gwarancja (Záruka, např. 5 lat")
+ - Korek (Špunt, např. "należy dokupić osobno")
+
+Všechny stahované produkty na vybraném eshopu mají stejné detaily, tedy pokud má nějaký produkt daný detail neznámý, je u daného detailu vyplněno slovo "nie".  
