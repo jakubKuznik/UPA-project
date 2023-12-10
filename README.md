@@ -7,9 +7,9 @@ Adam Kaňkovský **xkanko00**
 
 ## Earned points 
 ### Part 1: Storing Extensive Data in NoSQL Databases.
-**0/8**
+**8/8**
 ### Part 2 Data Preparation and Their Descriptive Characteristics.
-**0/8**
+**8/8**
 ### Part 3 Data Extraction from the Web.
 **0/8**
 
