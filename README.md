@@ -11,7 +11,7 @@ Adam Kaňkovský **xkanko00**
 ### Part 2 Data Preparation and Their Descriptive Characteristics.
 **8/8**
 ### Part 3 Data Extraction from the Web.
-**0/8**
+**8/8**
 
 
 ## Assignment Part 1: Storing Extensive Data in NoSQL Databases.
